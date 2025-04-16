@@ -30,7 +30,7 @@ function AddReview() {
     try {
       // Using a mock sentiment analysis API for demonstration
       // In production, replace with a real API like Azure Cognitive Services
-      const response = await axios.post('http://localhost:5000/api/sentiment/analyze', {
+      const response = await axios.post('http://3.110.167.222:3001/api/sentiment/analyze', {
         text
       });
       return response.data;
@@ -51,7 +51,7 @@ function AddReview() {
       setSentiment(sentimentResult);
 
       // Then submit the review with sentiment data
-      await axios.post('http://localhost:5000/api/reviews', {
+      await axios.post('http://3.110.167.222:3001/api/reviews', {
         ...formData,
         sentiment_score: sentimentResult?.score,
         sentiment_label: sentimentResult?.label

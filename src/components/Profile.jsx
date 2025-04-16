@@ -33,7 +33,7 @@ function Profile() {
 
     const fetchUserReviews = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/reviews?userId=${user.id}`);
+        const response = await axios.get(`http://3.110.167.222:3001/api/reviews?userId=${user.id}`);
         setUserReviews(response.data.reviews);
         setLoading(false);
       } catch (err) {

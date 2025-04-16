@@ -49,7 +49,7 @@ function AdminDashboard() {
   const fetchReviews = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/admin/reviews?page=${page + 1}&limit=${rowsPerPage}&search=${searchTerm}`,
+        `http://3.110.167.222:3001/api/admin/reviews?page=${page + 1}&limit=${rowsPerPage}&search=${searchTerm}`,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         }
@@ -67,7 +67,7 @@ function AdminDashboard() {
 
   const confirmDelete = async () => {
     try {
-      await axios.delete(`http://localhost:5000/api/admin/reviews/${selectedReview.id}`, {
+      await axios.delete(`http://3.110.167.222:3001/api/admin/reviews/${selectedReview.id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       fetchReviews();

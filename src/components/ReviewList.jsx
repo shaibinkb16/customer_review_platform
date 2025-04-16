@@ -64,7 +64,7 @@ function ReviewList() {
 
   const fetchReviews = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/reviews?page=${page}&limit=${reviewsPerPage}`);
+      const response = await axios.get(`http://3.110.167.222:3001/api/reviews?page=${page}&limit=${reviewsPerPage}`);
       setReviews(response.data.reviews);
       setTotalPages(Math.ceil(response.data.total / reviewsPerPage));
     } catch (error) {
@@ -74,7 +74,7 @@ function ReviewList() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/reviews/${id}`, {
+      await axios.delete(`http://3.110.167.222:3001/api/reviews/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       fetchReviews();
@@ -85,7 +85,7 @@ function ReviewList() {
 
   const handleReaction = async (reviewId, type) => {
     try {
-      await axios.post(`http://localhost:5000/api/reviews/${reviewId}/reactions`, 
+      await axios.post(`http://3.110.167.222:3001/api/reviews/${reviewId}/reactions`, 
         { type },
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }}
       );
@@ -97,7 +97,7 @@ function ReviewList() {
 
   const handleFlag = async (reviewId) => {
     try {
-      await axios.post(`http://localhost:5000/api/reviews/${reviewId}/flag`,
+      await axios.post(`http://3.110.167.222:3001/api/reviews/${reviewId}/flag`,
         {},
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }}
       );
